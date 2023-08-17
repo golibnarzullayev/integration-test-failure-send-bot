@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 async function sendTelegramMessage(botToken, chatId, message) {
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
