@@ -16,8 +16,8 @@ async function sendTelegramMessage(botToken, chatId, message) {
 }
 
 const botToken = process.argv[2];
-const chatIds = process.argv.slice(3);
-const message = 'Integration tests failed! Check the build.';
+const chatIds = process.argv[3].split(',');
+const message = `Integration tests failed! Check the build. ${chatIds.join(', ')}`;
 
 for (const chatId of chatIds) {
     sendTelegramMessage(botToken, chatId, message).then();
