@@ -1,0 +1,17 @@
+name: Always Fail
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Always fail
+        id: always-fail
+        run: exit 1
+
+      - name: Notify on failure
+        if: ${{ failure() }}
+        run: |
+          npm install axios
+          node index.js
