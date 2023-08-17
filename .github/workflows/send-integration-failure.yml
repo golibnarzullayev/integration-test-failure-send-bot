@@ -14,4 +14,4 @@ jobs:
         if: ${{ failure() }}
         run: |
           npm install axios
-          node index.js
+          node index.js ${{ secrets.TELEGRAM_BOT_TOKEN }} ${{ secrets.TELEGRAM_CHAT_IDS }}
